@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events Task</title>
+    <style>
+        .hover-effect {
+            background-color: red;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>П'ять подій з мишкою</h1>
+    <p onclick="changeStyle(this)">Клацніть на мене мишкою</p>
+    <p id="holdRelease" onmousedown="changeBackground('green')" onmouseup="changeBackground('yellow')">
+        На цьому тексті натисніть, потримайте і відпустіть ліву кнопку мишки
+    </p>
+    <p id="hoverChange" onmouseover="changeHoverStyle(true)" onmouseout="changeHoverStyle(false)">
+        Повільно проведіть курсором мишки по цій написи
+    </p>
+    <p id="hoverChangeBg" onmouseover="changeBackground('red')" onmouseout="changeBackground('lightblue')">
+        Зміна фону при наведенні миші
+    </p>
+
+    <script>
+        function changeStyle(element) {
+            element.style.fontSize = '48pt';
+            element.style.color = 'white';
+            element.style.backgroundColor = 'blue';
+        }
+
+        function changeBackground(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        function changeHoverStyle(isHovering) {
+            var element = document.getElementById('hoverChange');
+            if (isHovering) {
+                element.classList.add('hover-effect');
+            } else {
+                element.classList.remove('hover-effect');
+            }
+        }
+    </script>
+</body>
+</html>
